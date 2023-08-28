@@ -15,7 +15,7 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
     stages {
-        stage("Clone code from Github and nexus") {
+        stage("Clone code from Github jhgjhand nexus") {
             steps {
                 script {
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubwithpassword', url: 'https://github.com/Quvonchdev/java-maven-app.git']]])

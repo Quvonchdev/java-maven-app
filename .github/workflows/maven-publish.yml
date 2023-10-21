@@ -11,9 +11,8 @@ on:
 jobs:
   build:
 
-    runs-on:
-      - self-hosted
-      - label-1
+    runs-on: ubuntu-latest
+
     permissions:
       contents: read
       packages: write
@@ -36,6 +35,6 @@ jobs:
       run: docker build -t maven-app .
 
     - name: Publish to GitHub Packages Apache Maven
-      run: docker run -itd -p 8082:8080 maven-app
+      run: docker run -itd -p 8083:8080 maven-app
       
      

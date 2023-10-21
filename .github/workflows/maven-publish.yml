@@ -34,6 +34,9 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      run: docker build -t maven-app .
+
+    - name: Publish to GitHub Packages Apache Maven
+      run: docker run -itd -p 8081:8080 maven-app
+      
+     
